@@ -27,7 +27,7 @@ CREATE TABLE `motor_proposal_form`.`motor_proposal_form_corporate`
     `director_one` VARCHAR(100) NOT NULL,
     `director_two` VARCHAR(100) NOT NULL,
     `director_three` VARCHAR(100) NOT NULL,
-    `certificate_of _incorporation` VARCHAR(100) NOT NULL,
+    `certificate_of_incorporation` VARCHAR(100) NOT NULL,
     `memorandum` VARCHAR(100) NOT NULL,
     `cac_forms` VARCHAR(100) NOT NULL,
     `proof_of_address` VARCHAR(100) NOT NULL,
