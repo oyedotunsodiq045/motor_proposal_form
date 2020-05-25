@@ -2,7 +2,7 @@ CREATE DATABASE motor_proposal_form;
 
 CREATE TABLE `motor_proposal_form`.`motor_proposal_form_corporate` 
 (
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
     `name_of_firm` VARCHAR(100) NOT NULL,
     `business_address` VARCHAR(100) NOT NULL,
     `town` VARCHAR(100) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `motor_proposal_form`.`motor_proposal_form_corporate`
     `cover_required` VARCHAR(100) NOT NULL,
     `period_from` VARCHAR(100) NOT NULL,
     `period_to` VARCHAR(100) NOT NULL,
-    `date` VARCHAR(100) NOT NULL,
+    `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `sign_of_proposal` VARCHAR(100) NOT NULL,
     `name_of_proposal` VARCHAR(100) NOT NULL,
 PRIMARY KEY (`id`) 
@@ -44,8 +44,8 @@ PRIMARY KEY (`id`)
 
 CREATE TABLE `motor_proposal_form`.`motor_proposal_form_individual` 
 (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `name_of_proposal` VARCHAR(100) NOT NULL,
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name_of_proposal_one` VARCHAR(100) NOT NULL,
     `address` VARCHAR(100) NOT NULL,
     `town` VARCHAR(100) NOT NULL,
     `city` VARCHAR(100) NOT NULL,
@@ -69,15 +69,15 @@ CREATE TABLE `motor_proposal_form`.`motor_proposal_form_individual`
     `cover_required` VARCHAR(100) NOT NULL,
     `period_from` VARCHAR(100) NOT NULL,
     `period_to` VARCHAR(100) NOT NULL,
-    `date` VARCHAR(100) NOT NULL,
+    `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `sign_of_proposal` VARCHAR(100) NOT NULL,
-    `name_of_proposal` VARCHAR(100) NOT NULL,
+    `name_of_proposal_two` VARCHAR(100) NOT NULL,
 PRIMARY KEY (`id`) 
 );
 
 CREATE TABLE `motor_proposal_form`.`motor_vehicle_inspection_form` 
 (
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
     `name_of_proposer` VARCHAR(100) NOT NULL,
     `address` VARCHAR(100) NOT NULL,
     `registration_number` VARCHAR(100) NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE `motor_proposal_form`.`motor_vehicle_inspection_form`
     `inspector_sign` VARCHAR(100) NOT NULL,
     `insured_name` VARCHAR(100) NOT NULL,
     `insured_sign` VARCHAR(100) NOT NULL,
-    `date` VARCHAR(100) NOT NULL,
+    `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `inspection_location` VARCHAR(100) NOT NULL,
     `vehicle_front` VARCHAR(100) NOT NULL,
     `vehicle_back` VARCHAR(100) NOT NULL,

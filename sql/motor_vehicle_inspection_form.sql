@@ -1,6 +1,6 @@
 CREATE TABLE `motor_proposal_form`.`motor_vehicle_inspection_form` 
 (
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
     `name_of_proposer` VARCHAR(100) NOT NULL,
     `address` VARCHAR(100) NOT NULL,
     `registration_number` VARCHAR(100) NOT NULL,
@@ -16,12 +16,12 @@ CREATE TABLE `motor_proposal_form`.`motor_vehicle_inspection_form`
     `anti_theft` VARCHAR(100) NOT NULL,
     `previous_damage` VARCHAR(100) NOT NULL,
     `inspection_time` VARCHAR(100) NOT NULL,
-    `remarks` VARCHAR(100) NOT NULL,
+    `remarks` text NOT NULL,
     `inspector_name` VARCHAR(100) NOT NULL,
     `inspector_sign` VARCHAR(100) NOT NULL,
     `insured_name` VARCHAR(100) NOT NULL,
     `insured_sign` VARCHAR(100) NOT NULL,
-    `date` VARCHAR(100) NOT NULL,
+    `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `inspection_location` VARCHAR(100) NOT NULL,
     `vehicle_front` VARCHAR(100) NOT NULL,
     `vehicle_back` VARCHAR(100) NOT NULL,

@@ -2,7 +2,7 @@ CREATE DATABASE motor_proposal_form;
 
 CREATE TABLE `motor_proposal_form`.`motor_proposal_form_corporate` 
 (
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
     `name_of_firm` VARCHAR(100) NOT NULL,
     `business_address` VARCHAR(100) NOT NULL,
     `town` VARCHAR(100) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `motor_proposal_form`.`motor_proposal_form_corporate`
     `cover_required` VARCHAR(100) NOT NULL,
     `period_from` VARCHAR(100) NOT NULL,
     `period_to` VARCHAR(100) NOT NULL,
-    `date` VARCHAR(100) NOT NULL,
+    `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `sign_of_proposal` VARCHAR(100) NOT NULL,
     `name_of_proposal` VARCHAR(100) NOT NULL,
 PRIMARY KEY (`id`) 
