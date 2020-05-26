@@ -1,88 +1,90 @@
 <?php
 
-  // require_once "config/database.php";
-  require_once "connection.php";
+  include 'config/database.php';
 
   // Message Vars
   $msg = '';
   $msgClass = '';
 
-  // $connection = new mysqli("localhost", "root", "i#30L^w@", "motor_proposal_form");
-
   // Check For Submit
-  if (filter_has_var(INPUT_POST, 'submit')) {
-    // Get form data-browse
-    $name_of_proposer = htmlspecialchars($_POST['name_of_proposer']);
-    $address = htmlspecialchars($_POST['address']);
-    $registration_number = htmlspecialchars($_POST['registration_number']);
-    $vehicle_make = htmlspecialchars($_POST['vehicle_make']);
-    $vehicle_colour = htmlspecialchars($_POST['vehicle_colour']);
-    $chassis_number = htmlspecialchars($_POST['chassis_number']);
-    $engine_number = htmlspecialchars($_POST['engine_number']);
-    $body_type = htmlspecialchars($_POST['body_type']);
-    $manufacture_year = htmlspecialchars($_POST['manufacture_year']);
-    $speedometer_reading = htmlspecialchars($_POST['speedometer_reading']);
-    $estimate_value = htmlspecialchars($_POST['estimate_value']);
-    $accessory_value = htmlspecialchars($_POST['accessory_value']);
-    $anti_theft = htmlspecialchars($_POST['anti_theft']);
-    $previous_damage = htmlspecialchars($_POST['previous_damage']);
-    $inspection_time = htmlspecialchars($_POST['inspection_time']);
-    $remarks = htmlspecialchars($_POST['remarks']);
-    $inspector_name = htmlspecialchars($_POST['inspector_name']);
-    // $inspector_sign = htmlspecialchars($_POST['inspector_sign']);
-    $insured_name = htmlspecialchars($_POST['insured_name']);
-    // $insured_sign = htmlspecialchars($_POST['insured_sign']);
-    // $date = htmlspecialchars($_POST['date']);
-    $inspection_location = htmlspecialchars($_POST['inspection_location']);
-    // $vehicle_front = htmlspecialchars($_POST['vehicle_front']);
-    // $vehicle_back = htmlspecialchars($_POST['vehicle_back']);
-    // $vehicle_left = htmlspecialchars($_POST['vehicle_left']);
-    // $vehicle_right = htmlspecialchars($_POST['vehicle_right']);
-    
+  if ($_POST) {
+
     // Check Require Fields
     if (!empty($name_of_proposer) && !empty($address) && !empty($registration_number) && !empty($vehicle_make) && !empty($vehicle_colour) && !empty($chassis_number) && !empty($engine_number) && !empty($body_type) && !empty($manufacture_year) && !empty($speedometer_reading) && !empty($estimate_value) && !empty($accessory_value) && !empty($anti_theft) && !empty($previous_damage) && !empty($inspection_time) && !empty($remarks) && !empty($inspector_name) && !empty($insured_name) && !empty($inspection_location)) {
 
-      // if (!empty($name_of_proposer) && !empty($address) && !empty($registration_number) && !empty($vehicle_make) && !empty($vehicle_colour) && !empty($chassis_number) && !empty($engine_number) && !empty($body_type) && !empty($manufacture_year) && !empty($speedometer_reading) && !empty($estimate_value) && !empty($accessory_value) && !empty($anti_theft) && !empty($previous_damage) && !empty($inspection_time) && !empty($remarks) && !empty($inspector_name) && !empty($inspector_sign) && !empty($insured_name) && !empty($insured_sign) && !empty($date) && !empty($inspection_location) && !empty($vehicle_front) && !empty($vehicle_back) && !empty($vehicle_left) && !empty($vehicle_right)) {
-
       try {
-        $stmt = $conn->prapare("INSERT INTO motor_vehicle_inspection_form (name_of_proposer, 'address', registration_number, vehicle_make, vehicle_colour, chassis_number, engine_number, body_type, manufacture_year, speedometer_reading, estimate_value, accessory_value, anti_theft, previous_damage, inspection_time, remarks, inspector_name, insured_name, inspection_location) VALUES (:noproposer, :raddress, :rnumber, :vmake, :vcolour, :cnumber, :enumber, :btype, :myear, :sreading, :evalue, :avalue, :atheft, :pdamage, :itime, :rremarks, :iname, :inname, :ilocation)");
-
-        if ($stmt->execute(array( ':noproposer' => $name_of_proposer,
-                                  ':raddress' => $address,
-                                  ':rnumber' => $registration_number,
-                                  ':vmake' => $vehicle_make,
-                                  ':vcolour' => $vehicle_colour,
-                                  ':cnumber' => $chassis_number,
-                                  ':enumber' => $engine_number,
-                                  ':btype' => $body_type,
-                                  ':myear' => $manufacture_year,
-                                  ':sreading' => $speedometer_reading,
-                                  ':evalue' => $estimate_value,
-                                  ':avalue' => $accessory_value,
-                                ':atheft' => $anti_theft,
-                                ":pdamage" => $previous_damage,
-                                ":itime" => $inspection_time,
-                                ":rremarks" => $remarks,
-                                ":iname" => $inspector_name,
-                                ":inname" => $insured_name,
-                                ":ilocation" => $inspection_location))) {
+        // insert query
+        $query = "INSERT INTO motor_vehicle_inspection_form SET name_of_proposer=:name_of_proposer, address=:address, registration_number=:registration_number, vehicle_make=:vehicle_make, vehicle_colour=:vehicle_colour, chassis_number=:chassis_number, engine_number=:engine_number, body_type=:body_type, manufacture_year=:manufacture_year, speedometer_reading=:speedometer_reading, estimate_value=:estimate_value, accessory_value=:accessory_value, anti_theft=:anti_theft, previous_damage=:previous_damage, inspection_time=:inspection_time, remarks=:remarks, inspector_name=:inspector_name, insured_name=:insured_name, date=:date, inspection_location=:inspection_location";
+  
+        // prepare query for execution
+        $stmt = $con->prepare($query);
+              
+        // posted values
+        $name_of_proposer = htmlspecialchars(strip_tags($_POST['name_of_proposer']));
+        $address = htmlspecialchars(strip_tags($_POST['address']));
+        $registration_number = htmlspecialchars(strip_tags($_POST['registration_number']));
+        $vehicle_make = htmlspecialchars(strip_tags($_POST['vehicle_make']));
+        $vehicle_colour = htmlspecialchars(strip_tags($_POST['vehicle_colour']));
+        $chassis_number = htmlspecialchars(strip_tags($_POST['chassis_number']));
+        $engine_number = htmlspecialchars(strip_tags($_POST['engine_number']));
+        $body_type = htmlspecialchars(strip_tags($_POST['body_type']));
+        $manufacture_year = htmlspecialchars(strip_tags($_POST['manufacture_year']));
+        $speedometer_reading = htmlspecialchars(strip_tags($_POST['speedometer_reading']));
+        $estimate_value = htmlspecialchars(strip_tags($_POST['estimate_value']));
+        $accessory_value = htmlspecialchars(strip_tags($_POST['accessory_value']));
+        $anti_theft = htmlspecialchars(strip_tags($_POST['anti_theft']));
+        $previous_damage = htmlspecialchars(strip_tags($_POST['previous_damage']));
+        $inspection_time = htmlspecialchars(strip_tags($_POST['inspection_time']));
+        $remarks = htmlspecialchars(strip_tags($_POST['remarks']));
+        $inspector_name = htmlspecialchars(strip_tags($_POST['inspector_name']));
+        $insured_name = htmlspecialchars(strip_tags($_POST['insured_name']));
+        $inspection_location = htmlspecialchars(strip_tags($_POST['inspection_location']));
+              
+        // bind the parameters
+        $stmt->bindParam(':name_of_proposer', $name_of_proposer);
+        $stmt->bindParam(':address', $address);
+        $stmt->bindParam(':registration_number', $registration_number);
+        $stmt->bindParam(':vehicle_make', $vehicle_make);
+        $stmt->bindParam(':vehicle_colour', $vehicle_colour);
+        $stmt->bindParam(':chassis_number', $chassis_number);
+        $stmt->bindParam(':engine_number', $engine_number);
+        $stmt->bindParam(':body_type', $body_type);
+        $stmt->bindParam(':manufacture_year', $manufacture_year);
+        $stmt->bindParam(':speedometer_reading', $speedometer_reading);
+        $stmt->bindParam(':estimate_value', $estimate_value);
+        $stmt->bindParam(':accessory_value', $accessory_value);
+        $stmt->bindParam(':anti_theft', $anti_theft);
+        $stmt->bindParam(':previous_damage', $previous_damage);
+        $stmt->bindParam(':inspection_time', $inspection_time);
+        $stmt->bindParam(':remarks', $remarks);
+        $stmt->bindParam(':inspector_name', $inspector_name);
+        $stmt->bindParam(':insured_name', $insured_name);
+        $stmt->bindParam(':inspection_location', $inspection_location);
+                    
+        // specify when this record was inserted to the database
+        $date = date('Y-m-d H:i:s');
+        $stmt->bindParam(':date', $date);
+                    
+        // Execute the query
+        if ($stmt->execute()) {
           // Successful
           $msg = 'Form submitted successfully';
           $msgClass = 'alert-success';
+        } else {
+          // Failed
+          $msg = 'Form not submitted';
+          $msgClass = 'alert-danger';
         }
-      } catch (PDOException $e) {
-        // $msg = 'Connection Error: ' . $e->getMessage();
-        // $msgClass = 'alert-success';
-        echo 'Connection Error: ' . $e->getMessage();
+           
+      } catch(PDOException $exception) {
+        die('ERROR: ' . $exception->getMessage());
       }
-
     } else {
       // Failed
       $msg = 'Please fill in all fields';
       $msgClass = 'alert-danger';
     }
-  }
-
+  } 
 ?>
 
 <!DOCTYPE html>
@@ -346,7 +348,7 @@
             />
           </div>
         </div>
-        <div class="form-row">
+        <!-- <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Inspector’s Signature</label>
             <input
@@ -363,7 +365,7 @@
               id=""
             />
           </div>
-        </div>
+        </div> -->
         <!-- <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Date</label>
@@ -377,7 +379,7 @@
             />
           </div>
         </div> -->
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="">Date</label>
           <input
             type="date"
@@ -387,7 +389,7 @@
             value="" 
             placeholder="Enter date"
           />
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="">Location of Inspection</label>
           <input
@@ -403,7 +405,7 @@
           NOTE: kindly attach pictures of the vehicle showing the four sides
           (front, back, left & right).
         </h6>
-        <div class="form-row">
+        <!-- <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Front</label>
             <input
@@ -420,8 +422,8 @@
               id=""
             />
           </div>
-        </div>
-        <div class="form-row">
+        </div> -->
+        <!-- <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Left</label>
             <input
@@ -438,7 +440,7 @@
               id=""
             />
           </div>
-        </div>
+        </div> -->
         <button type="submit" name="submit" class="mt-5 btn btn-primary btn-lg btn-block">
           Submit
         </button>
