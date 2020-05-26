@@ -346,7 +346,7 @@
             />
           </div>
         </div>
-        <!-- <div class="form-row">
+        <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Inspector’s Signature</label>
             <input
@@ -363,18 +363,31 @@
               id=""
             />
           </div>
+        </div>
+        <!-- <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="">Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id=""
+              name="date"
+              value="" 
+              placeholder="Enter date"
+            />
+          </div>
         </div> -->
-        <!-- <div class="form-group">
+        <div class="form-group">
           <label for="">Date</label>
           <input
-            type="text"
+            type="date"
             class="form-control"
             id=""
             name="date"
             value="" 
             placeholder="Enter date"
           />
-        </div> -->
+        </div>
         <div class="form-group">
           <label for="">Location of Inspection</label>
           <input
@@ -390,7 +403,7 @@
           NOTE: kindly attach pictures of the vehicle showing the four sides
           (front, back, left & right).
         </h6>
-        <!-- <div class="form-row">
+        <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Front</label>
             <input
@@ -425,7 +438,7 @@
               id=""
             />
           </div>
-        </div> -->
+        </div>
         <button type="submit" name="submit" class="mt-5 btn btn-primary btn-lg btn-block">
           Submit
         </button>
