@@ -1,3 +1,5 @@
+DROP DATABASE motor_proposal_form;
+
 CREATE DATABASE motor_proposal_form;
 
 CREATE TABLE `motor_proposal_form`.`motor_proposal_form_corporate` 
