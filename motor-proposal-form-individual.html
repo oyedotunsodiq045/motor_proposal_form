@@ -225,6 +225,90 @@
           />
         </div>
         <h6>KINDLY ATTACH THE FOLLOWING DOCUMENTS</h6>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="">Valid means of Identification</label>
+            <input type="file" class="form-control-file" name="valid_id" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="">Proof of Address/Utility bill </label>
+            <input
+              type="file"
+              class="form-control-file"
+              name="proof_of_address"
+            />
+          </div>
+        </div>
+        <h6>RISK DETAILS</h6>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Registration Number</label>
+            <input type="text" class="form-control" name="reg_num" />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">Make of Vehicle</label>
+            <input type="text" class="form-control" name="vehicle_make" />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Chassis Number</label>
+            <input type="text" class="form-control" name="chassis_number" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Engine Number</label>
+            <input type="text" class="form-control" name="engine_num" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Value</label>
+            <input type="text" class="form-control" name="value" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Vehicle Type</label>
+          <select class="form-control">
+            <option>Private Motor</option>
+            <option>Commercial Vehicle - Own Goods</option>
+            <option>Commercial Vehicle - Bus</option>
+            <option>Commercial Vehicle - Gen. Cartage</option>
+            <option>Motor Cycle</option>
+            <option>Commercial Vehicle - Special Type</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Cover Required</label>
+          <select class="form-control">
+            <option>Comprehensive</option>
+            <option>Third Party Fire & Theft</option>
+            <option>Third Party Only</option>
+          </select>
+        </div>
+        <h6>PERIOD OF INSURANCE</h6>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="">From</label>
+            <input type="date" name="period_from" class="form-control" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="">To</label>
+            <input type="date" name="period_to" class="form-control" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="">Name of proposer</label>
+            <input
+              type="text"
+              class="form-control"
+              name="proposer_name"
+              placeholder="Enter name of proposer"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="">Signature of proposer</label>
+            <input type="file" class="form-control-file" name="proposer_sign" />
+          </div>
+        </div>
         <button
           type="submit"
           name="submit"
