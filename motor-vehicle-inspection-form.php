@@ -239,11 +239,10 @@
   </head>
   <body>
     <div class="container mt-5 mb-5">
-
       <?php if($msg != ''): ?>
-        <div class="alert <?php echo $msgClass; ?>">
-          <?php echo $msg; ?>
-        </div>
+      <div class="alert <?php echo $msgClass; ?>">
+        <?php echo $msg; ?>
+      </div>
       <?php endif; ?>
 
       <div class="text-center">
@@ -257,7 +256,12 @@
         <h2 class="text-center"><u>MOTOR PHYSICAL INSPECTION FORM</u></h2>
       </div>
 
-      <form class="mt-3" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+      <form
+        class="mt-3"
+        method="post"
+        action="<?php echo $_SERVER['PHP_SELF']; ?>"
+        enctype="multipart/form-data"
+      >
         <h6>PERSONAL DATA</h6>
         <div class="form-group">
           <label for="">Name of Proposer</label>
@@ -372,9 +376,7 @@
           />
         </div>
         <div class="form-group">
-          <label for=""
-            >Any Security Alarm/Anti-theft device</label
-          >
+          <label for="">Any Security Alarm/Anti-theft device</label>
           <input
             type="text"
             class="form-control"
@@ -383,9 +385,7 @@
           />
         </div>
         <div class="form-group">
-          <label for=""
-            >Any evidence of previous damage/accident</label
-          >
+          <label for="">Any evidence of previous damage/accident</label>
           <input
             type="text"
             class="form-control"
@@ -405,17 +405,13 @@
         <h6>SCOPE OF COVER REQUIRED</h6>
         <div class="form-group">
           <label for="">Remarks</label>
-          <textarea
-            class="form-control"
-            name="remarks"
-            rows="2"
-          ></textarea>
+          <textarea class="form-control" name="remarks" rows="2"></textarea>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Inspector’s Name</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               class="form-control"
               name="inspector_name"
               placeholder="Enter inspector's name"
@@ -423,8 +419,8 @@
           </div>
           <div class="form-group col-md-6">
             <label for="">Insured’s Name</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               class="form-control"
               name="insured_name"
               placeholder="Enter insured's name"
@@ -442,11 +438,7 @@
           </div>
           <div class="form-group col-md-6">
             <label for="">Insured’s Signature</label>
-            <input
-              type="file"
-              class="form-control-file"
-              name="insured_sign"
-            />
+            <input type="file" class="form-control-file" name="insured_sign" />
           </div>
         </div>
         <div class="form-group">
@@ -465,40 +457,28 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Front</label>
-            <input
-              type="file"
-              class="form-control-file"
-              name="vehicle_front"
-            />
+            <input type="file" class="form-control-file" name="vehicle_front" />
           </div>
           <div class="form-group col-md-6">
             <label for="">Back</label>
-            <input
-              type="file"
-              class="form-control-file"
-              name="vehicle_back"
-            />
+            <input type="file" class="form-control-file" name="vehicle_back" />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">Left</label>
-            <input
-              type="file"
-              class="form-control-file"
-              name="vehicle_left"
-            />
+            <input type="file" class="form-control-file" name="vehicle_left" />
           </div>
           <div class="form-group col-md-6">
             <label for="">Right</label>
-            <input
-              type="file"
-              class="form-control-file"
-              name="vehicle_right"
-            />
+            <input type="file" class="form-control-file" name="vehicle_right" />
           </div>
         </div>
-        <button type="submit" name="submit" class="mt-5 btn btn-primary btn-lg btn-block">
+        <button
+          type="submit"
+          name="submit"
+          class="mt-5 btn btn-primary btn-lg btn-block"
+        >
           Submit
         </button>
       </form>
